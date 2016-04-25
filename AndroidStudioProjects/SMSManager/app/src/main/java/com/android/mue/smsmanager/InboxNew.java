@@ -223,29 +223,29 @@ public class InboxNew extends Activity {
 
 			long first = System.currentTimeMillis();
 
-			lmessage = (ArrayList<String>) com.codeandcoder.dsm.ObjectSerializer.deserialize(shared
-					.getString("lmessage", com.codeandcoder.dsm.ObjectSerializer
+			lmessage = (ArrayList<String>)  com.android.mue.smsmanager.ObjectSerializer.deserialize(shared
+					.getString("lmessage",  com.android.mue.smsmanager.ObjectSerializer
 							.serialize(new ArrayList<String>())));
-			lsender = (ArrayList<String>) com.codeandcoder.dsm.ObjectSerializer.deserialize(shared
-					.getString("lsender", com.codeandcoder.dsm.ObjectSerializer
+			lsender = (ArrayList<String>)  com.android.mue.smsmanager.ObjectSerializer.deserialize(shared
+					.getString("lsender",  com.android.mue.smsmanager.ObjectSerializer
 							.serialize(new ArrayList<String>())));
-			lname = (ArrayList<String>) com.codeandcoder.dsm.ObjectSerializer.deserialize(shared
-					.getString("lname", com.codeandcoder.dsm.ObjectSerializer
+			lname = (ArrayList<String>)  com.android.mue.smsmanager.ObjectSerializer.deserialize(shared
+					.getString("lname",  com.android.mue.smsmanager.ObjectSerializer
 							.serialize(new ArrayList<String>())));
-			lid = (ArrayList<String>) com.codeandcoder.dsm.ObjectSerializer.deserialize(shared
-					.getString("lid", com.codeandcoder.dsm.ObjectSerializer
+			lid = (ArrayList<String>)  com.android.mue.smsmanager.ObjectSerializer.deserialize(shared
+					.getString("lid",  com.android.mue.smsmanager.ObjectSerializer
 							.serialize(new ArrayList<String>())));
-			llongDate = (ArrayList<String>) com.codeandcoder.dsm.ObjectSerializer.deserialize(shared
-					.getString("llongDate", com.codeandcoder.dsm.ObjectSerializer
+			llongDate = (ArrayList<String>)  com.android.mue.smsmanager.ObjectSerializer.deserialize(shared
+					.getString("llongDate",  com.android.mue.smsmanager.ObjectSerializer
 							.serialize(new ArrayList<String>())));
-			ldate = (ArrayList<String>) com.codeandcoder.dsm.ObjectSerializer.deserialize(shared
-					.getString("ldate", com.codeandcoder.dsm.ObjectSerializer
+			ldate = (ArrayList<String>)  com.android.mue.smsmanager.ObjectSerializer.deserialize(shared
+					.getString("ldate",  com.android.mue.smsmanager.ObjectSerializer
 							.serialize(new ArrayList<String>())));
-			dataHash = (ArrayList<HashMap<String, String>>) com.codeandcoder.dsm.ObjectSerializer
+			dataHash = (ArrayList<HashMap<String, String>>)  com.android.mue.smsmanager.ObjectSerializer
 					.deserialize(shared
 							.getString(
 									"Task",
-									com.codeandcoder.dsm.ObjectSerializer
+									 com.android.mue.smsmanager.ObjectSerializer
 											.serialize(new ArrayList<HashMap<String, String>>())));
 			phoneHash = dataHash;
 			dataHashSize = dataHash.size();
@@ -293,7 +293,7 @@ public class InboxNew extends Activity {
 			public void handleMessage(Message msg) {
 				// this is the textview
 
-				if (com.codeandcoder.dsm.SmsBrodcast.isReceived) {
+				if ( com.android.mue.smsmanager.SmsBrodcast.isReceived) {
 
 					// new InboxRetrive().execute();
 					try {
@@ -305,7 +305,7 @@ public class InboxNew extends Activity {
 						Toast.makeText(InboxNew.this, e.toString(), 1).show();
 					}
 
-					com.codeandcoder.dsm.SmsBrodcast.isReceived = false;
+					 com.android.mue.smsmanager.SmsBrodcast.isReceived = false;
 
 				}
 
@@ -558,27 +558,27 @@ public class InboxNew extends Activity {
 		// Toast.makeText(InboxNew.this,
 		// Integer.toString(SmsBrodcast.lsender.size()), 1).show();
 		db.open();
-		for (int i = 0; i < com.codeandcoder.dsm.SmsBrodcast.lsender.size(); i++) {
+		for (int i = 0; i <  com.android.mue.smsmanager.SmsBrodcast.lsender.size(); i++) {
 			HashMap<String, String> map = new HashMap<String, String>();
-			String sender = com.codeandcoder.dsm.SmsBrodcast.lsender.get(i);
+			String sender =  com.android.mue.smsmanager.SmsBrodcast.lsender.get(i);
 			lsender.add(0, sender);
 			String senderD = InboxNew.this.getDisplayName(sender);
 			lname.add(0, senderD);
 			map.put(KEY_SENDER, senderD);
-			String message = com.codeandcoder.dsm.SmsBrodcast.lmessage.get(i);
+			String message =  com.android.mue.smsmanager.SmsBrodcast.lmessage.get(i);
 
 			lmessage.add(0, message);
 			map.put(KEY_MESSAGE, message);
 
-			llongDate.add(0, com.codeandcoder.dsm.SmsBrodcast.llongDate.get(i));
-			map.put("key_long_date", com.codeandcoder.dsm.SmsBrodcast.llongDate.get(i));
-			map.put("key_sender_number", com.codeandcoder.dsm.SmsBrodcast.lsender.get(i));
+			llongDate.add(0,  com.android.mue.smsmanager.SmsBrodcast.llongDate.get(i));
+			map.put("key_long_date",  com.android.mue.smsmanager.SmsBrodcast.llongDate.get(i));
+			map.put("key_sender_number",  com.android.mue.smsmanager.SmsBrodcast.lsender.get(i));
 
-			map.put(KEY_DATE, com.codeandcoder.dsm.SmsBrodcast.ldate.get(i));
-			map.put(KEY_TIME, com.codeandcoder.dsm.SmsBrodcast.ltime.get(i));
+			map.put(KEY_DATE,  com.android.mue.smsmanager.SmsBrodcast.ldate.get(i));
+			map.put(KEY_TIME,  com.android.mue.smsmanager.SmsBrodcast.ltime.get(i));
 
-			lid.add(com.codeandcoder.dsm.SmsBrodcast.lid.get(i));
-			db.CreateStore(senderD, message, com.codeandcoder.dsm.SmsBrodcast.llongDate.get(i));
+			lid.add( com.android.mue.smsmanager.SmsBrodcast.lid.get(i));
+			db.CreateStore(senderD, message,  com.android.mue.smsmanager.SmsBrodcast.llongDate.get(i));
 
 			dataHash.add(0, map);
 			if (!click)
@@ -714,14 +714,14 @@ public class InboxNew extends Activity {
 	public void sharedTrigger() {
 		Editor ed = shared.edit();
 		try {
-			ed.putString("Task", com.codeandcoder.dsm.ObjectSerializer.serialize(dataHash));
-			ed.putString("ldata", com.codeandcoder.dsm.ObjectSerializer.serialize(ldate));
-			ed.putString("ltime", com.codeandcoder.dsm.ObjectSerializer.serialize(ltime));
-			ed.putString("lmessage", com.codeandcoder.dsm.ObjectSerializer.serialize(lmessage));
-			ed.putString("lsender", com.codeandcoder.dsm.ObjectSerializer.serialize(lsender));
-			ed.putString("lname", com.codeandcoder.dsm.ObjectSerializer.serialize(lname));
-			ed.putString("lid", com.codeandcoder.dsm.ObjectSerializer.serialize(lid));
-			ed.putString("llongDate", com.codeandcoder.dsm.ObjectSerializer.serialize(llongDate));
+			ed.putString("Task",  com.android.mue.smsmanager.ObjectSerializer.serialize(dataHash));
+			ed.putString("ldata",  com.android.mue.smsmanager.ObjectSerializer.serialize(ldate));
+			ed.putString("ltime",  com.android.mue.smsmanager.ObjectSerializer.serialize(ltime));
+			ed.putString("lmessage",  com.android.mue.smsmanager.ObjectSerializer.serialize(lmessage));
+			ed.putString("lsender",  com.android.mue.smsmanager.ObjectSerializer.serialize(lsender));
+			ed.putString("lname",  com.android.mue.smsmanager.ObjectSerializer.serialize(lname));
+			ed.putString("lid",  com.android.mue.smsmanager.ObjectSerializer.serialize(lid));
+			ed.putString("llongDate",  com.android.mue.smsmanager.ObjectSerializer.serialize(llongDate));
 			ed.commit();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

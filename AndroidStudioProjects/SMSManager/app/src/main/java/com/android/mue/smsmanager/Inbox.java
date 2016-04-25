@@ -24,7 +24,7 @@ public class Inbox extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		Inbox_Read();
-		setListAdapter(new com.codeandcoder.dsm.InboxArrayAdapter(this, Inbox_name, Inbox_number,
+		setListAdapter(new com.android.mue.smsmanager.InboxArrayAdapter(this, Inbox_name, Inbox_number,
 				Inbox_date, Inbox_type, Inbox_msg));
 
 	}
@@ -35,7 +35,7 @@ public class Inbox extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		Toast.makeText(Inbox.this, "Number : " + Inbox_number[position],
 				Toast.LENGTH_SHORT).show();
-		Intent intent = new Intent(this, com.codeandcoder.dsm.ViewMesg.class);
+		Intent intent = new Intent(this, com.android.mue.smsmanager.ViewMesg.class);
 		intent.putExtra("name", Inbox_name[position]);
 		intent.putExtra("no", Inbox_number[position]);
 		intent.putExtra("date", Inbox_date[position]);

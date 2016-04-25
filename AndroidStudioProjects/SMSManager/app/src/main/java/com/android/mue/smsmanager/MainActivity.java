@@ -127,7 +127,7 @@ public class MainActivity extends ListActivity {
 		 * setListAdapter(adapter);
 		 */
 
-		setListAdapter(new com.codeandcoder.dsm.SmsArrayAdapter(this, listItem));
+		setListAdapter(new com.android.mue.smsmanager.SmsArrayAdapter(this, listItem));
 
 		lv.setScrollingCacheEnabled(false);
 		lv.setOnItemLongClickListener(new OnItemLongClickListener() {
@@ -162,7 +162,7 @@ public class MainActivity extends ListActivity {
 										listItem = menuItems
 												.toArray(new String[menuItems
 														.size()]);
-										setListAdapter(new com.codeandcoder.dsm.SmsArrayAdapter(
+										setListAdapter(new  com.android.mue.smsmanager.SmsArrayAdapter(
 												MainActivity.this, listItem));
 										Toast.makeText(MainActivity.this,
 												"Label deleted", 1).show();
@@ -241,7 +241,7 @@ public class MainActivity extends ListActivity {
 			startActivity(i3);
 			break;
 		case 3:
-			Intent i4 = new Intent(this, com.codeandcoder.dsm.SI.class);
+			Intent i4 = new Intent(this,  com.android.mue.smsmanager.SI.class);
 			startActivity(i4);
 			break;
 		case 4:
@@ -249,7 +249,7 @@ public class MainActivity extends ListActivity {
 			startActivity(i5);
 			break;
 		case 5:
-			Intent i6 = new Intent(this, com.codeandcoder.dsm.Trash.class);
+			Intent i6 = new Intent(this,  com.android.mue.smsmanager.Trash.class);
 			i6.putExtra("Trash", "Trash");
 			startActivity(i6);
 			// Toast.makeText(getApplicationContext(), "Trash", 1).show();
@@ -286,7 +286,7 @@ public class MainActivity extends ListActivity {
 										listItem = menuItems
 												.toArray(new String[menuItems
 														.size()]);
-										setListAdapter(new com.codeandcoder.dsm.SmsArrayAdapter(
+										setListAdapter(new  com.android.mue.smsmanager.SmsArrayAdapter(
 												MainActivity.this, listItem));
 
 									} else {
