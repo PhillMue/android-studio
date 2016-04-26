@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SMSManager</string>
     <string name="menu_settings">Settings</string>
+    <string name="c_msg">Message</string>
+    <string name="Inbox_msg">Inbox</string>
+    <string name="Send_item_msg">Send</string>
+    <string name="Frd_msg">Forward</string>
+    <string name="View_msg">View</string>
 </resources>
